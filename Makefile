@@ -1,5 +1,5 @@
 ###########################################################################
-## Xilinx ISE Makefile
+# Xilinx ISE Makefile
 ##
 ## To the extent possible under law, the author(s) have dedicated all copyright
 ## and related and neighboring rights to this software to the public domain
@@ -70,7 +70,7 @@ endif
 TEST_NAMES = $(foreach file,$(VTEST) $(VHDTEST),$(basename $(file)))
 TEST_EXES = $(foreach test,$(TEST_NAMES),build/isim_$(test)$(EXE))
 
-RUN = @echo -ne "\n\n\e[1;33m======== $(1) ========\e[m\n\n"; \
+RUN = @echo "> > > > > > > > > > $(1) < < < < < < < < < <"; \
 	cd build && $(XILINX)/bin/$(XILINX_PLATFORM)/$(1)
 
 # isim executables don't work without this
@@ -127,7 +127,7 @@ $(BITFILE): project.cfg $(VSOURCE) $(CONSTRAINTS) build/$(PROJECT).prj build/$(P
 	    -w $(PROJECT).map.ncd $(PROJECT).ncd $(PROJECT).pcf
 	$(call RUN,bitgen) $(COMMON_OPTS) $(BITGEN_OPTS) \
 	    -w $(PROJECT).ncd $(PROJECT).bit
-	@echo -ne "\e[1;32m======== OK ========\e[m\n"
+	@echo "> > > > > > > > > > OK < < < < < < < < < <"
 
 
 ###########################################################################
